@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="greeting">
+        {{greeting  }} ({{greeting.length}})
+    </div>
+    
+    <script>
+        Vue.createApp({
+
+            data(){
+                return {
+                    greeting:"hello world"
+                };
+            },
+            mounted(){
+           // alert("hello nagi");
+          
+        setTimeout(()=>{
+            this.greeting="changed";
+        }
+        ,3000);
+
+        }
+        }).mount('#app'); /** to connect vue with html */
+    </script>
+</body>
+</html>
