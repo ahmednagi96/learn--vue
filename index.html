@@ -5,21 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        /* التنسيق لتوسيط كل شيء في منتصف الصفحة */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* توسيط أفقي */
+            align-items: center;    /* توسيط رأسي */
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        #app {
+            text-align: center;
+        }
+
+        /* الكلاس الذي سيتم تفعيله من خلال Vue */
+        .green-text {
+            color: green;
+            font-weight: bold;
+            font-size: 2rem;
+            transition: all 0.5s ease; /* إضافة تأثير ناعم عند التغيير */
+            
+        }
+        .red-text {
+            color: rgb(189, 48, 30);
+            font-weight: bold;
+            font-size: 2rem;
+           /* transition: all 0.5s ease; /* إضافة تأثير ناعم عند التغيير */
+            
+        }
+
+    </style>
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="greeting">
-        {{greeting  }} ({{greeting.length}})
+      <button :class="active ?  buttonGreenColor : buttonRedColor " @click="toggle">
+        Clcik here
+      </button>
     </div>
     
     <script>
         Vue.createApp({
-
             data(){
                 return {
-                    greeting:"hello world"
+                    greeting:"hello world",
+                    buttonGreenColor:"green-text",
+                    buttonRedColor:"red-text",
+                    active :true
                 };
-            },
+            }
+            ,
+            methods:{
+                toggle(){
+                    this.active = ! this.active
+                }
+            }
+            ,
             mounted(){
            // alert("hello nagi");
           
