@@ -1,78 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <style>
-        /* التنسيق لتوسيط كل شيء في منتصف الصفحة */
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center; /* توسيط أفقي */
-            align-items: center;    /* توسيط رأسي */
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-        }
+      /* التنسيق لتوسيط كل شيء في منتصف الصفحة */
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center; /* توسيط أفقي */
+        align-items: center; /* توسيط رأسي */
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
 
-        #app {
-            text-align: center;
-        }
-
-        /* الكلاس الذي سيتم تفعيله من خلال Vue */
-        .green-text {
-            color: green;
-            font-weight: bold;
-            font-size: 2rem;
-            transition: all 0.5s ease; /* إضافة تأثير ناعم عند التغيير */
-            
-        }
-        .red-text {
-            color: rgb(189, 48, 30);
-            font-weight: bold;
-            font-size: 2rem;
-           /* transition: all 0.5s ease; /* إضافة تأثير ناعم عند التغيير */
-            
-        }
-
+      #app {
+        text-align: center;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-      <button :class="active ?  buttonGreenColor : buttonRedColor " @click="toggle">
-        Clcik here
-      </button>
+      <div v-show="inprogressAssignments.length">
+        <h3>IN progress Assignments</h3>
+        <ul>
+          <li v-for="assingment in inprogressAssignments" :key="assingment.id">
+            <label :for="assingment.id">
+              {{assingment.name}}
+              <input type="checkbox" v-model="assingment.completed" />
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div v-show="completedAssignments.length">
+        <h3>Complteed Assignments</h3>
+        <ul>
+          <li v-for="assingment in completedAssignments" :key="assingment.id">
+            <label :for="assingment.id">
+              {{assingment.name}}
+              <input type="checkbox" v-model="assingment.completed" />
+            </label>
+          </li>
+        </ul>
+      </div>
     </div>
-    
-    <script>
-        Vue.createApp({
-            data(){
-                return {
-                    greeting:"hello world",
-                    buttonGreenColor:"green-text",
-                    buttonRedColor:"red-text",
-                    active :true
-                };
-            }
-            ,
-            methods:{
-                toggle(){
-                    this.active = ! this.active
-                }
-            }
-            ,
-            mounted(){
-           // alert("hello nagi");
-          
-        setTimeout(()=>{
-            this.greeting="changed";
-        }
-        ,3000);
 
-        }
-        }).mount('#app'); /** to connect vue with html */
+    <script>
+      let app = {
+        data() {
+          return {
+            asssingments: [
+              {
+                name: "Data 1",
+                completed: false,
+                id: 1,
+              },
+              {
+                name: "Data 2",
+                completed: false,
+                id: 2,
+              },
+              {
+                name: "Data 3",
+                completed: false,
+                id: 3,
+              },
+            ],
+          };
+        },
+        computed: {
+          inprogressAssignments() {
+            return this.asssingments.filter(a => !a.completed);
+          },
+          completedAssignments() {
+            return this.asssingments.filter(a => a.completed);
+          },
+        },
+      };
+      Vue.createApp(app).mount("#app"); /** to connect vue with html */
     </script>
-</body>
+  </body>
 </html>
