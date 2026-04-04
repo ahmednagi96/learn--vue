@@ -1,5 +1,2 @@
-props it is dynamic properties which change ;
-data() is is static data
- <app-button type="secondary" :processing="false">
-type without colon means its value is string
-processing with colon means its value is code logic
+computed is jsut function make operation on data but is very samrt which save data in cache or memory and dynamic wich chnages?
+props you can't edit it in page as v-model in input and in this case you must use data which change it using v-model
