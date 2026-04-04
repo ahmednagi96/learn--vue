@@ -1,26 +1,5 @@
-الفرق بين v-if و v-show هو واحد من أشهر أسئلة المقابلات في Vue، والفرق الجوهري بينهما يكمن في طريقة التعامل مع الـ DOM (عناصر الصفحة).
-
-إليك المقارنة ببساطة:
-1. v-if (التنفيذ المشروط - Conditional Rendering)
-
-عندما تكون القيمة false في v-if:
-
-    يتم حذف العنصر تماماً من الـ HTML. لا يظهر في الـ "Inspect Element".
-
-    إذا تغيرت القيمة لـ true يقوم Vue ببناء العنصر من جديد.
-
-    التكلفة: عالية عند التبديل المتكرر (لأنه يهدم ويبني العنصر).
-
-    متى نستخدمه؟ عندما لا تتغير الحالة كثيراً (مثلاً: إظهار لوحة تحكم للمدير فقط).
-
-2. v-show (العرض المشروط - Conditional Display)
-
-عندما تكون القيمة false في v-show:
-
-    يبقى العنصر موجوداً في الـ HTML. لكن Vue يضيف له كود CSS هو display: none;.
-
-    العنصر موجود في الصفحة لكنه "مخفي" عن عين المستخدم فقط.
-
-    التكلفة: منخفضة جداً (لأنه يغير خاصية CSS فقط ولا يعيد بناء العنصر).
-
-    متى نستخدمه؟ عندما نحتاج لتبديل الحالة بسرعة وتكرار (مثلاً: قائمة منسدلة "Dropdown" أو تبويبات "Tabs").
+props it is dynamic properties which change ;
+data() is is static data
+ <app-button type="secondary" :processing="false">
+type without colon means its value is string
+processing with colon means its value is code logic
