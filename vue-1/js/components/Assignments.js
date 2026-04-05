@@ -1,7 +1,8 @@
 import AssignmentList from "./AssignmentList.js";
+import AssignmentCreate from "./AssignmentCreate.js";
 export default{
 
-    components:{AssignmentList},
+    components:{AssignmentList,AssignmentCreate},
     template:`
         <section class="max-w-5xl mx-auto py-10 px-4">
             <header class="mb-10 text-center">
@@ -14,21 +15,7 @@ export default{
                 <assignment-list :assignments="filter.completed" title="Completed" class="border-t-4 border-t-emerald-400"></assignment-list>
             </div>
 
-            <form  @submit.prevent="add" class="max-w-md mx-auto mt-12 ">
-                <div class="flex shadow-sm rounded-lg overflow-hidden border border-slate-200 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 transition-all">
-                    <input 
-                        v-model="newAssignment"
-                        placeholder="What needs to be done?" 
-                        class="w-full px-4 py-3 text-slate-700 outline-none bg-white"
-                    />
-                    <button 
-                        type="submit" 
-                        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 font-bold transition-colors shrink-0"
-                    >
-                        Add
-                    </button>
-                </div>
-            </form>
+      <assignment-create  @add="addAssignment"></assignment-create>       
         </section>
     `,
     computed: {
@@ -42,15 +29,13 @@ export default{
       }, 
       
       methods:{
-        add(e){
-          //e.preventDefault();
-          if(this.newAssignment.trim() === "") return ;
+        addAssignment(name){
+          if(name === "") return ;
           this.asssingments.push({
-            name:this.newAssignment,
+            name:name,
             completed:false,
             id:this.asssingments.length + 1
           });
-          this.newAssignment="";
         }
       }
       ,data() {
