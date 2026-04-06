@@ -4,7 +4,7 @@ export default {
             <button 
 
                 v-for="tag in tags" 
-                @click="$emit('changeTag',tag)"
+                @click="$emit('update:currentTag',tag)"
                 class="border rounded px-2 py-px text-xs transition-colors duration-200 border-blue-500 text-blue-500 hover:bg-blue-200 hover:text-black"
                 :class="{
                 'bg-blue-400 text-white ': currentTag === tag
