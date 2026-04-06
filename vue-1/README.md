@@ -1,2 +1,9 @@
-when i need to send data from parent to child you must use props but the opposite which if you need to send data from child to parent you must use (emit the event)
-      
+what is deiffernce between set and array 
+set is unique items and not have any indexes 
+array allows duplicate items and have indexes
+spread operator is just unpacking 
+{
+
+    $learning=[1,2,3],
+    ...$learning ===> 1 , 2 ,3
+}
