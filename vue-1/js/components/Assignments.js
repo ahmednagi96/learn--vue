@@ -40,26 +40,12 @@ export default{
       }
       ,data() {
         return {
-          asssingments: [
-            {
-              name: "Data 1",
-              completed: false,
-              id: 1,
-              tags:"math"
-            },
-            {
-              name: "Data 2",
-              completed: false,
-              id: 2,
-              tags:"sciencs"
-            },
-            {
-              name: "Data 3",
-              completed: false,
-              id: 3,
-              tags:'math'
-            },
-          ],
+          asssingments: [],
         };
       },
+      created(){
+        fetch("http://localhost:3005/assignments")
+          .then(response=>response.json())
+          .then(assignments=>this.asssingments=assignments);
+      }
 }
