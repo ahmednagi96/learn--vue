@@ -11,11 +11,16 @@ export default{
             </header>
 
             <div class="grid md:grid-cols-2 gap-8 items-start">
-                <assignment-list :assignments="filter.inprogress" title="In Progress" class="border-t-4 border-t-amber-400"></assignment-list>
-                <assignment-list :assignments="filter.completed" title="Completed" class="border-t-4 border-t-emerald-400"></assignment-list>
+                <assignment-list :assignments="filter.inprogress" title="In Progress" class="border-t-4 border-t-amber-400">
+                  <assignment-create  @add="addAssignment"></assignment-create>   
+                </assignment-list>
+                <assignment-list :assignments="filter.completed" title="Completed" class="border-t-4 border-t-emerald-400" can-show 
+                v-if="showList"
+                @toggleList="showList = !showList"
+                ></assignment-list>
             </div>
 
-      <assignment-create  @add="addAssignment"></assignment-create>       
+        
         </section>
     `,
     computed: {
@@ -41,10 +46,11 @@ export default{
       ,data() {
         return {
           asssingments: [],
+          showList:true
         };
       },
       created(){
-        fetch("http://localhost:3005/assignments")
+        fetch("http://localhost:3006/assignments")
           .then(response=>response.json())
           .then(assignments=>this.asssingments=assignments);
       }
