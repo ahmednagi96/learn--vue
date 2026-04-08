@@ -1,9 +1,10 @@
 import Assignment from "./Assignment.js"
 import AssignmentTags from "./AssignmentTags.js";
+import Panel from "./Panel.js";
 export default {
-   components:{Assignment,AssignmentTags},
+   components:{Assignment,AssignmentTags,Panel},
     template:`
-     <div v-show="assignments.length" class="relative bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm h-fit transition-all duration-300 hover:shadow-md">
+     <panel v-show="assignments.length" class="relative bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm h-fit transition-all duration-300 hover:shadow-md">
     
     <button 
         @click="$emit('toggleList')"
@@ -42,7 +43,7 @@ export default {
     <div class="mt-4 pt-4 border-t border-slate-100">
         <slot></slot>
     </div>
-</div>
+</panel>
     `,
     props:{
         assignments:Array,
