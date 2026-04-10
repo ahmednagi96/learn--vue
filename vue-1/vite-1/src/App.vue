@@ -1,6 +1,10 @@
 <script setup>
 import HelloWorld from '@/components/HelloWorld.vue'
 import TheWelcome from '@/components/TheWelcome.vue'
+    setTimeout(() => {
+      msg="done II";
+    },2000);
+    let msg= $ref("welcome back");
 </script>
 
 <template>
@@ -18,7 +22,8 @@ import TheWelcome from '@/components/TheWelcome.vue'
   </main>
 
   <main>
-    <RouterLink to="/about">About Us</RouterLink>
+    <RouterLink to="/about">{{ msg }}</RouterLink><br>
+    <input type="text" v-model="msg">
   </main>
 
   <main>
