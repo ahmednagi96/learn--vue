@@ -20,12 +20,15 @@ import TheWelcome from '@/components/TheWelcome.vue'
   <main>
     <TheWelcome />
   </main>
+  <RouterLink to="/about">About</RouterLink>
+  <RouterLink to="/contact">Contact us</RouterLink>
 
+<!--       
   <main>
     <RouterLink to="/about">{{ msg }}</RouterLink><br>
     <input type="text" v-model="msg">
   </main>
-
+-->
   <main>
     <RouterView />
   </main>
