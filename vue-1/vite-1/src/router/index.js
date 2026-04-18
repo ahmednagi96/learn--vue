@@ -1,4 +1,5 @@
 import ContactView from "@/views/ContactView.vue";
+import CounterView from "@/views/CounterView.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 
@@ -12,6 +13,11 @@ const routes = [
     path:"/contact",
     name:"contact",
     component:ContactView
+  },
+  {
+    path:"/counter",
+    name:"counter",
+    component:CounterView
   }
 ];
 
