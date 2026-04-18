@@ -1,11 +1,9 @@
 <script setup>
-import { inject } from "vue";
+import { state } from '@/stores/quizStore';
 
-
-let { name } = inject("quiz");
 
 </script>
 
 <template>
-  <button  >{{ name }}</button> 
+  <button   @click="state.name = 'new name !'">{{ state.name }}</button> 
 </template>

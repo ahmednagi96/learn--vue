@@ -1,13 +1,8 @@
 <script setup>
-import { provide } from 'vue';
 import QuizFooter from './QuizFooter.vue';
 import QuizHeader from './QuizHeader.vue';
 import QuizQuestion from './QuizQuestion.vue'; 
-let test=defineProps({
-    quiz:Object
-})
 
-provide('quiz',test.quiz);
 </script>
 
 <template>
@@ -21,7 +16,7 @@ provide('quiz',test.quiz);
       </main>
   
       <footer  class="quiz-footer-wrapper">
-        <QuizFooter :quiz="quiz"/>
+        <QuizFooter />
       </footer>
     </div>
   </template>

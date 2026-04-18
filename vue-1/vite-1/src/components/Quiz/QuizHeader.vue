@@ -1,10 +1,8 @@
 <script setup>
-import { inject } from 'vue';
-
-let {name}=inject("quiz");
+import { state } from '@/stores/quizStore';
 </script>
 
 <template>
 
-    {{name}} 
+    {{state.name}} 
 </template>
