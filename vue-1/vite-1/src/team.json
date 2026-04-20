@@ -1,0 +1,32 @@
+{
+    "name":"Simple",
+    "spots":7,
+
+    "members":[
+        {
+            "name":"ahmed nagi",
+            "email":"ahmed@email.com",
+            "status":"Active"
+        },
+        {
+            "name":"ahmed ali",
+            "email":"ahmedali@email.com",
+            "status":"Active"
+        },
+        {
+            "name":"sara Ahmed",
+            "email":"sara@email.com",
+            "status":"InActive"
+        },
+        {
+            "name":"salma yasser",
+            "email":"salma@email.com",
+            "status":"Active"
+        },
+        {
+            "name":"Mohamed",
+            "email":"mohamed@email.com",
+            "status":"InActive"
+        }
+    ]
+}

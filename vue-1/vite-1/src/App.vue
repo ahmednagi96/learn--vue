@@ -21,9 +21,10 @@ import TheWelcome from '@/components/TheWelcome.vue'
   <main>
    <!--<TheWelcome /> --> 
   </main>
-  <RouterLink to="/about">About</RouterLink>
-  <RouterLink to="/contact">Contact us</RouterLink>
+<!--  <RouterLink to="/about">About</RouterLink>
+<RouterLink to="/contact">Contact us</RouterLink>
   <RouterLink to="/counter">Counter </RouterLink>
+  --> 
 
 
 <!--       
