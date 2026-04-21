@@ -1,9 +1,9 @@
 <script setup>
 import TeamMember from "@/components/Teams/TeamMember.vue";
 
-defineProps({
-    teamData:Object
-})
+import { useTeamStore } from "@/stores/TeamStore.js";
+
+let teamData=useTeamStore();
 </script>
 
 <template>
@@ -22,7 +22,7 @@ defineProps({
         />
       </tbody>
     </table>
-    <p class="text-right text-gray-600 italic text-white" v-show=" teamData.spots === teamData.members.length ">
+    <p class="text-right text-gray-600 italic text-white" v-show=" !teamData.reamining ">
       There are no remaining team spots. Upgrade to add more.
     </p>
 </template>

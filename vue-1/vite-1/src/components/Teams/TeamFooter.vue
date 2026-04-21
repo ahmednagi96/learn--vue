@@ -1,8 +1,8 @@
 <script setup>
 
-defineProps({
-    teamData:Object
-})
+import { useTeamStore } from "@/stores/TeamStore.js";
+
+let teamData=useTeamStore();
 </script>
 <template>
 <footer class="mt-12 bg-gray-100 py-4 text-center text-gray-600">

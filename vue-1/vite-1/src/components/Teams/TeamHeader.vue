@@ -1,18 +1,19 @@
 <script setup>
-defineProps({
-    teamData:Object
-})
+import { useTeamStore } from "@/stores/TeamStore.js";
+
+let teamData=useTeamStore();
 </script>
 
 <template>
 <header class="flex justify-between">
     <div>
       <button
+        @click="teamData.addNewTeam()"
         class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded disabled:bg-gray-400"
-        :disabled="teamData.members.length === teamData.spots"
+        :disabled="!teamData.reamining"
         
       >
-        Add Member ({{ teamData.spots - teamData.members.length }} Spots Left)
+        Add Member ({{ teamData.reamining }} Spots Left)
       </button>
     </div>
     <div>
