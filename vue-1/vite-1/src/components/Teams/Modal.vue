@@ -1,18 +1,14 @@
-
 <script setup>
-import { Transition } from 'vue';
-
+import { Transition } from "vue";
 
 defineProps({
-    showModal:Boolean
+  showModal: Boolean,
 });
-
 </script>
 
 <template>
   <transition name="modal">
-    <div v-if="showModal" class="modal-overlay" @click.self="$emit('close')">
-      
+    <div v-if="showModal" class="modal-overlay">
       <div class="modal-container">
         <div class="modal-header">
           <h2>Header</h2>
@@ -30,7 +26,6 @@ defineProps({
           </slot>
         </div>
       </div>
-
     </div>
   </transition>
 </template>
@@ -125,7 +120,13 @@ defineProps({
 
 /* أنيميشن بسيط لظهور المودال */
 @keyframes fadeIn {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 </style>

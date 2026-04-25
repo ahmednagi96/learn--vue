@@ -1,25 +1,15 @@
 <script setup>
 import { useTeamStore } from "@/stores/TeamStore.js";
 import { ref } from "vue";
-import Model  from "@/components/Teams/Modal.vue";
-let teamData=useTeamStore();
+import Model from "@/components/Teams/Modal.vue";
+import AddMemberModal from "./AddMemberModal.vue";
+let teamData = useTeamStore();
 
 </script>
 
 <template>
-
-
-<header class="flex justify-between">
-    <div>
-      <button
-        @click="$emit('add')"
-        class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded disabled:bg-gray-400"
-        :disabled="!teamData.reamining"
-        
-      >
-        Add Member ({{ teamData.reamining }} Spots Left)
-      </button>
-    </div>
+  <header class="flex justify-between">
+    <AddMemberModal />
     <div>
       <div class="inline-flex items-center text-3xl relative">
         <img
@@ -28,11 +18,11 @@ let teamData=useTeamStore();
           class="mr-2"
           style="width: 50px; height: 50px; object-fit: contain"
         />
-        <h3>{{teamData.name}}  Team</h3>
+        <h3>{{ teamData.name }} Team</h3>
         <div
           class="bg-green-400 w-5 h-5 text-xs text-white rounded-full flex justify-center items-center absolute -right-4 -top-2"
         >
-        {{teamData.spots}} 
+          {{ teamData.spots }}
         </div>
       </div>
     </div>
