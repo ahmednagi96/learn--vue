@@ -1,14 +1,18 @@
 <script setup>
 import { useTeamStore } from "@/stores/TeamStore.js";
-
+import { ref } from "vue";
+import Model  from "@/components/Teams/Modal.vue";
 let teamData=useTeamStore();
+
 </script>
 
 <template>
+
+
 <header class="flex justify-between">
     <div>
       <button
-        @click="teamData.addNewTeam()"
+        @click="$emit('add')"
         class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded disabled:bg-gray-400"
         :disabled="!teamData.reamining"
         
